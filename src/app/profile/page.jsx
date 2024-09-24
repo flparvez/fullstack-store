@@ -8,7 +8,7 @@ const Profile = async() => {
 const user = session?.user
 
 if(!session?.user) redirect('/auth/login')
-  console.log(session)
+ 
   return (
     
     <div className="flex">
