@@ -2,7 +2,7 @@
 import React from 'react'
 import Link from 'next/link';
 import { useDeleteOrderMutation } from '@/store/services/CheckOutApi'; 
-import {useGetSingleUserQuery} from '@/store/services/UserApi'
+
 import {
   Table,
   TableBody,
@@ -13,17 +13,17 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-const OrderList = ({orderData}) => {
-    const {data, isError,isLoading} = useGetSingleUserQuery()
+const OrderList = ({orderData,user}) => {
+    
     const [deleteOrder] = useDeleteOrderMutation(); 
     const truncateText = (text, maxLength) => {
         if (text.length > maxLength) {
           return text.substring(0, maxLength) + "";
         }
       }
-      const userId =data?.data._id
+      const userId =user?.id;
      
-     
+    
       if (userId) {
         const handleDelete = async (id) => {
           await deleteOrder({id, userId}).unwrap();
@@ -64,4 +64,4 @@ const OrderList = ({orderData}) => {
   )
 }
 }
-export default OrderList
+export default OrderList;

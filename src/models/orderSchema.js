@@ -9,7 +9,8 @@ const orderSchema = new Schema(
     address: { type: String, required: true },
     city: { type: String, required: true },
   
- user: { type: Schema.Types.ObjectId, ref: 'User', required: true },
+ user: { type:String,required:true },
+//  user: { type: Schema.Types.ObjectId, ref: 'User', required: true },
 
  products: [],  // Array of product details
 

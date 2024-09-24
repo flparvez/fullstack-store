@@ -3,6 +3,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { removeItem, incrementItem, decrementItem, clearCart } from '../../store/cartSlice';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const CartPage = () => {
   const dispatch = useDispatch();
@@ -52,12 +53,12 @@ const CartPage = () => {
                     </tr>
                   </thead>
                   <tbody className="bg-white divide-y divide-gray-200">
-                    {cart.items.map((item) => (
+                    {cart?.items?.map((item) => (
                       <tr key={item.product}>
                         <td className="px-6 py-4 whitespace-nowrap">
                           <div className="flex items-center">
                             <div className="flex-shrink-0 h-10 w-10">
-                              <img className="h-10 w-10 rounded-full" src={item.image} alt={item.title} />
+                              <Image width={300} height={300} className="h-10 w-10 rounded-full" src={item.image} alt={item.title} />
                             </div>
                             <div className="ml-4">
                               <div className="text-sm font-medium text-gray-900">{item.title}</div>

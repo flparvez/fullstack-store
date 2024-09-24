@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { addItem } from '@/store/cartSlice';
 
 import Image from 'next/image';
+import { toast } from 'sonner';
 const ProductPage =({product}) => {
 
 
@@ -18,7 +19,7 @@ const ProductPage =({product}) => {
       quantity: 1,
       image: product.images,  
     }));
-    alert('Product added to cart!');
+    toast.success('Product added to cart');
   };
   if (!product) return <div>Loading...</div>
  

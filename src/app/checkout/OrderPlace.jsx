@@ -4,12 +4,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { clearCart } from '../../store/cartSlice';
 import {useAddOrderMutation} from '../../store/services/CheckOutApi'
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 
 
 const CheckoutPage = ({user}) => {
 
-    console.log(user)
 const router = useRouter()
 
 
@@ -86,8 +86,8 @@ const [addOrder] = useAddOrderMutation()
       <h2 className="text-xl font-semibold mt-3 mb-4">Items</h2>
       <div className="flex flex-col">
         {cart.items.map((item) => (
-          <div key={item.id} className="flex items-center justify-center mb-4">
-            <img src={item.image} alt={item.title} className="w-16 h-16 mr-4" />
+          <div key={item.product} className="flex items-center justify-center mb-4">
+            <Image width={100} height={100} src={item.image} alt={item.title} className="w-16 h-16 mr-4" />
             <div>
               <h3 className="text-sm font-medium">{item.title}</h3>
               <p className="text-black text-sm">

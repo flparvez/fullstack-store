@@ -45,7 +45,7 @@ if (!filteruser) return <h2>Loading....</h2>
       </TableHeader>
       <TableBody>
         {filteruser.map((invoice) => (
-          <TableRow key={invoice.invoice}>
+          <TableRow key={invoice._id}>
             <TableCell className="font-medium"><Link href={`/profile/order/${invoice._id}`}>{truncateText(invoice._id,5)}</Link></TableCell>
             <TableCell>{new Date(invoice.createdAt).toLocaleDateString()}</TableCell>
             <TableCell>{invoice.name}</TableCell>

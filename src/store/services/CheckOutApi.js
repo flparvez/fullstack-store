@@ -10,7 +10,7 @@ export const checkoutApi = createApi({
     // Mutation for adding an order
     addOrder: builder.mutation({
       query: (body) => ({
-        url: `order?userId=${body?.userci}`,
+        url: 'order',
         method: 'POST',
         body,
       }),
