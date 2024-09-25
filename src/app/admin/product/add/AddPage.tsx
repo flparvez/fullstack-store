@@ -64,7 +64,7 @@ const [addProduct] = useAddProductMutation()
 
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    const product= await addProduct({data,id:user.id}).unwrap();
+    const product= await addProduct(data).unwrap();
     if (product) {
       console.log("Products add succesfully")
        router.push('/admin')

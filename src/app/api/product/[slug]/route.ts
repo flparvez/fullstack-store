@@ -41,6 +41,7 @@ export const GET = async (request:Request,context: { params:any}) =>{
     }
     
     
+    // Update Product By Slug
 
     export const PATCH = async (request: Request, context: { params: any }) => {
         const productSlug = context.params.slug;
@@ -79,17 +80,17 @@ export const GET = async (request:Request,context: { params:any}) =>{
       
           await connectDb();
       
-          // Validate User
-          const user = await User.findById(userId);
-          if (!user) {
-            return new NextResponse(
-              JSON.stringify({ message: "User not found" }),
-              { status: 404 }
-            );
-          }
+          // // Validate User
+          // const user = await User.findById(userId);
+          // if (!user) {
+          //   return new NextResponse(
+          //     JSON.stringify({ message: "User not found" }),
+          //     { status: 404 }
+          //   );
+          // }
       
-          // Find the product by slug and userId
-          const product = await Product.findOne({ slug: productSlug, user: userId });
+          // Find the product by slug 
+          const product = await Product.findOne({ slug: productSlug});
           if (!product) {
             return new NextResponse(
               JSON.stringify({ message: "Product not found" }),
@@ -99,7 +100,7 @@ export const GET = async (request:Request,context: { params:any}) =>{
       
           // Update the product using findOneAndUpdate
           const updatedProduct = await Product.findOneAndUpdate(
-            { slug: productSlug, user: userId },
+            { slug: productSlug },
             {
               name,
               description,

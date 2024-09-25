@@ -55,16 +55,17 @@ password:hashedPassword,
           <div className="grid w-full items-center gap-4">
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="name">Name</Label>
-              <Input type="text" name="name" id="name" placeholder="Enter Name" />
+              <Input type="text" name="name" id="name" placeholder="Enter Name" required />
             </div> 
              <div className="flex flex-col space-y-1.5">
               <Label htmlFor="name">Email</Label>
-              <Input type="text" name="email" id="email" placeholder="Enter Email" />
+              <Input type="text" name="email" id="email" placeholder="Enter Email" required />
             </div>
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="name">Password</Label>
-              <Input type="password" name="password" id="email" placeholder="Enter Password" />
+              <Input type="password" name="password" id="email" placeholder="Enter Password" required />
             </div>
+           
             <Button variant="ghost">Signup</Button>
           </div>
         </form>

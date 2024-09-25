@@ -9,7 +9,7 @@ export const productsApi = createApi({
   endpoints: (builder) => ({
 
     addProduct: builder.mutation({
-      query: (body,id) => ({
+      query: (body) => ({
         url: `product?userId=${id}`,
         method: 'POST',
         body,
