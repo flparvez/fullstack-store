@@ -10,12 +10,12 @@ import { cn } from "@/lib/utils";
 import { useState } from "react";
 import { useEditCategoryMutation } from "@/store/services/CategoryApi";
 import { useRouter } from "next/navigation";
-import {useGetSingleUserQuery} from '@/store/services/UserApi'
-const EditCategory = ({cdata,categoryId}) => {
+
+const EditCategory = ({cdata,categoryId,userId}) => {
+
+  console.log(userId)
     const router = useRouter()
  
-    const {data} = useGetSingleUserQuery()
-    const userId =data?.data._id;
     // const [addCategory] = useAddCategoryMutation();
   const {
     register,
@@ -25,7 +25,7 @@ const EditCategory = ({cdata,categoryId}) => {
     formState: { errors },
   } = useForm();
  
-  if (data) {
+  if (userId) {
     setValue("title", cdata?.category.title);
     setValue("description", cdata?.category.description);
     setValue("image", cdata?.category.image);
@@ -37,7 +37,7 @@ const EditCategory = ({cdata,categoryId}) => {
   const onSubmit = async (data) => {
     await editCategory({ id: categoryId,userId:userId, updatedCategory: data });
 
-    if (!data) {
+    if (!userId) {
       <h2>Loading...</h2>
     }
     if (!isLoading) {

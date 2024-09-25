@@ -7,7 +7,7 @@ import Image from 'next/image';
 import { toast } from 'sonner';
 const ProductPage =({product}) => {
 
-
+console.log(product)
   const dispatch = useDispatch();
 
   const handleAddToCart = () => {
@@ -61,20 +61,23 @@ const ProductPage =({product}) => {
             <span className="px-3 py-1 bg-red-200 text-red-800 rounded-md">Tag 3</span>
           </div>
      {/* Product Video (YouTube Embed) */}
-     <div className="mb-6">
-            <h2 className="text-lg font-semibold mb-2">Product Video</h2>
-            <div className="aspect-w-16 aspect-h-9">
-            <iframe
-  className="w-full lg:h-80 md:h-96 h-56 rounded-md"
-  src={`https://www.youtube.com/embed/${product.video}?controls=0&showinfo=0&modestbranding=1&rel=0&autohide=1`}
-  title="Product Video"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowFullScreen
-  frameBorder="0"
+     {product.video? (
+           <div className="mb-6">
+           <h2 className="text-lg font-semibold mb-2">Product Video</h2>
+           <div className="aspect-w-16 aspect-h-9">
+           <iframe
+ className="w-full lg:h-80 md:h-96 h-56 rounded-md"
+ src={`https://www.youtube.com/embed/${product.video}?controls=0&showinfo=0&modestbranding=1&rel=0&autohide=1`}
+ title="Product Video"
+ allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+ allowFullScreen
+ frameBorder="0"
 ></iframe>
 
-            </div>
-          </div>
+           </div>
+         </div>
+     ) : ""}
+ 
 
           {/* Product Description */}
           <div className="mb-6">

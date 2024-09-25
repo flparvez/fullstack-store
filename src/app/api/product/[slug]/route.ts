@@ -80,15 +80,7 @@ export const GET = async (request:Request,context: { params:any}) =>{
       
           await connectDb();
       
-          // // Validate User
-          // const user = await User.findById(userId);
-          // if (!user) {
-          //   return new NextResponse(
-          //     JSON.stringify({ message: "User not found" }),
-          //     { status: 404 }
-          //   );
-          // }
-      
+         
           // Find the product by slug 
           const product = await Product.findOne({ slug: productSlug});
           if (!product) {

@@ -3,6 +3,7 @@ import Category from "@/models/categorySchema";
 import {User} from "@/models/userSchema";
 import { Types } from "mongoose";
 import { NextResponse } from "next/server";
+import slugify from "slugify";
 
 
 
@@ -88,7 +89,7 @@ if (!category) {
 
 const updatedCategory = await Category.findByIdAndUpdate(
 categoryId,
-{title,description,image},
+{title,description,image,slug:slugify(title)},
 {new:true}
 );
 

@@ -148,7 +148,7 @@ const [addProduct] = useAddProductMutation()
  
     <LabelInputContainer className="mb-4 ">
       <Label htmlFor="video">Product video</Label>
-      <Input {...register("video", { required: true })} id="video" placeholder="Product video Link" type="text"   />
+      <Input {...register("video")} id="video" placeholder="Product video Link" type="text"   />
       </LabelInputContainer>
  
 

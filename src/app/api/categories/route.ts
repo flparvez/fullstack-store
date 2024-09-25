@@ -3,6 +3,7 @@ import Category from "@/models/categorySchema";
 import {User} from "@/models/userSchema";
 import { Types } from "mongoose";
 import { NextResponse } from "next/server";
+import slugify from "slugify";
 
 
 export const GET = async (request: Request)=>{
@@ -38,6 +39,7 @@ export const POST = async (request:Request) =>{
 
         const newCategory = new Category({
             title,
+            slug:slugify(title),
             description,
             image,
             user: new Types.ObjectId(userId)

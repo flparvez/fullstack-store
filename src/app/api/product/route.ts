@@ -68,8 +68,10 @@ export const POST = async (request: Request) => {
       );
     }
 
+ 
     // Manually generate the slug
     const slug = slugify(name, { lower: true, strict: true });
+    
 
     const newProduct = new Product({
       name,

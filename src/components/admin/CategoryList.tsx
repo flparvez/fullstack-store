@@ -1,23 +1,23 @@
-import { Card, CardContent, CardFooter } from "./ui/card";
-import { Button } from "./ui/button";
+import { Card, CardContent, CardFooter } from "../ui/card";
+import { Button } from "../ui/button";
 // import { brandOptionsMap, categoryOptionsMap } from "@/config";
-import { Badge } from "./ui/badge";
+import { Badge } from "../ui/badge";
 import Link from "next/link";
 import Image from "next/image";
-import { useGetSingleUserQuery } from "@/store/services/UserApi";
+
 import { useDeleteCategoryMutation } from "@/store/services/CategoryApi";
 
-function ShoppingProductTile({
-  product,
+function CategoryList({
+  product,user
 //   handleGetProductDetails,
 //   handleAddtoCart,
 }:any) {
-  const {data, isError,isLoading} = useGetSingleUserQuery("")
+
     const [deleteCategory] = useDeleteCategoryMutation(); 
 
-  const userId =data?.data._id
+  const userId =user?.id;
      
-     
+   
   if (userId) {
     const handleDelete = async (id:any) => {
       await deleteCategory({id, userId}).unwrap();
@@ -70,4 +70,4 @@ function ShoppingProductTile({
   );
 }
 }
-export default ShoppingProductTile;
+export default CategoryList;

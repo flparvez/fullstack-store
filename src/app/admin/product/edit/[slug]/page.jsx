@@ -81,7 +81,7 @@ const EditPage = ({ params }) => {
   return (
 
 
-
+// add
 
 
     <div className="max-w-md sm:max-w-[90%] w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black">
@@ -166,7 +166,7 @@ const EditPage = ({ params }) => {
         <LabelInputContainer className="mb-4">
           <Label htmlFor="video">Product Video</Label>
           <Input
-            {...register("video", { required: true })}
+            {...register("video")}
             id="video"
             placeholder="Product video Link"
             type="text"
