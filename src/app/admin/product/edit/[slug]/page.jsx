@@ -176,7 +176,7 @@ const EditPage = ({ params }) => {
         <LabelInputContainer className="mb-4">
           <Label htmlFor="sold">Product Sold</Label>
           <Input
-            {...register("sold", { required: true })}
+            {...register("sold")}
             id="sold"
             placeholder="Product Sold"
             type="number"
@@ -187,7 +187,7 @@ const EditPage = ({ params }) => {
           <Label>Product Tags</Label>
           {tag.map((cat) => (
                       <div className="flex items-center space-x-2" key={cat}>
-                        <RadioGroupItem {...register("tags", { required: true })} value={cat.toLocaleLowerCase()}  id={cat.toLocaleLowerCase()} />
+                        <RadioGroupItem {...register("tags")} value={cat.toLocaleLowerCase()}  id={cat.toLocaleLowerCase()} />
                         <Label htmlFor={cat.toLocaleLowerCase()}>{cat.toLocaleLowerCase()}</Label>
             </div>
           ))}

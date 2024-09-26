@@ -1,7 +1,7 @@
 "use client"
 /** @format */
 import {  useDeleteProductMutation, useGetProductsQuery } from "@/store/services/prodcutApi";
-import {useGetSingleUserQuery} from '@/store/services/UserApi'
+
 import React, { useState } from "react";
 
 

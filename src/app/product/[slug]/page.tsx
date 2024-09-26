@@ -27,9 +27,9 @@ const product = await fetch(`https://uniquestorebd.vercel.app/api/product/${para
 
 const ProductDetails  = async ({params}:any) => {
 
-  const product = await fetch(`https://uniquestorebd.vercel.app/api/product/${params.slug}`).then((res) => res.json())
 
-  return <ProductPage product ={product?.product} /> ;
+
+  return <ProductPage slug ={params?.slug} /> ;
 };
 
 export default ProductDetails;

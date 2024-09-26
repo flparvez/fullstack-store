@@ -20,7 +20,7 @@ export default function SideNavbar() {
   }
 
   return (
-    <div className=" relative w-[60px] border-r px-3 pb-10 pt-12">
+    <div className=" relative  border-r px-2 pb-10 pt-12">
       {!mobileWidth && (
         <div className="absolute right-[-20px] top-7">
           <Button
