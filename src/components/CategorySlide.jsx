@@ -51,7 +51,7 @@ const CategorySlides = () => {
              
              <SwiperSlide key={category._id}>
          <div className="flex-shrink-0 w-48 h-48 m-2 bg-white rounded-lg shadow-md overflow-hidden">
-          <Link href={`/products/${category.title}`}>
+          <Link href={`/products/${category?.slug?.toLowerCase()}`}>
       <Image width={300} height={128} src={category.image} alt={category.title} className="w-full h-32 object-cover" />
       <div className="p-2">
         <h3 className="text-lg font-semibold text-center">{category.title}</h3>

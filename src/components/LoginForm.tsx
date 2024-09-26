@@ -5,7 +5,7 @@ import React from 'react'
 import { credentialsLogin } from '@/hooks/login';
 
 
-import { toast } from 'sonner';
+import {Toaster, toast } from 'sonner';
 import { Label } from './ui/label';
 import { Input } from './ui/input';
 import { Button } from './ui/button';
@@ -50,6 +50,8 @@ const toastId = toast.loading("Logging in")
             <Button type="submit" variant="ghost">Login</Button>
           </div>
         </form>
+  
+
     </div>
   )
 }

@@ -35,8 +35,10 @@ const EditCategory = ({cdata,categoryId,userId}) => {
   const [editCategory, { isLoading }] = useEditCategoryMutation();
 
   const onSubmit = async (data) => {
-    await editCategory({ id: categoryId,userId:userId, updatedCategory: data });
-
+  const categoryUpdate=  await editCategory({ id: categoryId,userId:userId, updatedCategory: data });
+if (categoryUpdate) {
+  router.push('/admin/category')
+}
     if (!userId) {
       <h2>Loading...</h2>
     }

@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea"
 
 import { cn } from "@/lib/utils";
 import { useAddCategoryMutation } from "@/store/services/CategoryApi";
+import { useRouter } from "next/navigation";
 
 
 type Inputs = {
@@ -18,6 +19,8 @@ type Inputs = {
 };
 
 export default function AddCategory() {
+
+  const router= useRouter()
     const [addCategory] = useAddCategoryMutation();
   const {
     register,
@@ -30,7 +33,8 @@ export default function AddCategory() {
    const addCategories= await addCategory(data).unwrap();
    
    if (addCategories) {
-    console.log("Category add succesfully")
+    
+     router.push('/admin/category')
    }
   }
 

@@ -127,7 +127,7 @@ const EditPage = ({ params }) => {
             className="select"
           >
           {categories?.map((category) => (
-            <option  key={category._id} value={category.title}>{category.title}</option>
+            <option  key={category._id} value={category.title.toLocaleLowerCase()}>{category.title}</option>
           ))}
           
           </select>
