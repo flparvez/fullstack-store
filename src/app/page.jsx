@@ -14,7 +14,7 @@ const Home = () => {
   const {data} = useGetProductsQuery()
   const products = data?.products;
   const productsSlider = data?.products?.slice(0, 10);
-//  console.log(data)
+
 if (!products) return <h2>Loading...</h2>
   return (
     <div>

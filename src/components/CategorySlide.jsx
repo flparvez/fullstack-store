@@ -33,11 +33,12 @@ const CategorySlides = () => {
           clickable: true,
         }}
         breakpoints={{
-          640: { slidesPerView: 1 },
-          540: { slidesPerView: 1 },
-          768: { slidesPerView: 2 },
-          968: { slidesPerView: 3 },
-          1024: { slidesPerView: 4 },
+          320: { slidesPerView: 2, spaceBetween: 10 },
+          480: { slidesPerView: 2, spaceBetween: 10 },
+          640: { slidesPerView: 2, spaceBetween: 20 },
+          768: { slidesPerView: 2, spaceBetween: 20 },
+          1024: { slidesPerView: 3, spaceBetween: 30 },
+          1280: { slidesPerView: 4, spaceBetween: 40 },
         }}
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
