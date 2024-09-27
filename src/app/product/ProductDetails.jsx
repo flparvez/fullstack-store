@@ -10,7 +10,7 @@ const ProductPage =({slug}) => {
 const {data} = useGetProductBySlugQuery(slug)
 
 const product = data?.product;
-console.log(product)
+
   const dispatch = useDispatch();
 
   const handleAddToCart = () => {
