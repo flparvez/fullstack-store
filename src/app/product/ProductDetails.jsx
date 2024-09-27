@@ -46,7 +46,7 @@ console.log(product)
       <div className="flex flex-col justify-between">
         <div>
           {/* Product Title */}
-          <h1 className="sm:text-3xl text-2xl font-bold mb-4">{product.name}</h1>
+          <h1 className="sm:text-3xl text-xl font-bold mb-4">{product.name}</h1>
 
           {/* Product Price */}
           <p className="text-xl sm:text-2xl text-green-600 font-semibold mb-4">৳{product.price}</p>
@@ -55,7 +55,7 @@ console.log(product)
           <p className="text-md text-gray-700 mb-4">Stock:{product.stock}</p>
 
           {/* Product Category */}
-          <p className="text-md text-gray-500 mb-6">Category: <span className="font-bold">  <Link href={`/products/${product?.slug?.toLowerCase()}`}>{product.category}</Link></span></p>
+          <p className="text-md text-gray-500 mb-6 ">Category: <span className="font-bold">  <Link href={`/products/${product?.slug?.toLowerCase()}`}>{product.category}</Link></span></p>
 
           {/* Product Tags */}
           <div className="flex flex-wrap gap-2 mb-6">
