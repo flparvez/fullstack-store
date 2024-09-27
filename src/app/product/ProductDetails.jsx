@@ -55,7 +55,7 @@ console.log(product)
           <p className="text-md text-gray-700 mb-4">Stock:{product.stock}</p>
 
           {/* Product Category */}
-          <p className="text-md text-gray-500 mb-6">Category: <span className="font-bold">  <Link href={`/products/${category?.slug?.toLowerCase()}`}>{product.category}</Link></span></p>
+          <p className="text-md text-gray-500 mb-6">Category: <span className="font-bold">  <Link href={`/products/${product?.slug?.toLowerCase()}`}>{product.category}</Link></span></p>
 
           {/* Product Tags */}
           <div className="flex flex-wrap gap-2 mb-6">
