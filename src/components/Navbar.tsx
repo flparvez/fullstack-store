@@ -60,13 +60,13 @@ const Navbar = () => {
               <DropdownMenuContent>
                 <DropdownMenuGroup>
                   <DropdownMenuItem>
-                    <Link href="/category/electronics">Electronics</Link>
+                    <Link href="/products/unique-store">Unique Store</Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem>
-                    <Link href="/category/clothing">Clothing</Link>
+                    <Link href="/productsheadphone">Headphone</Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem>
-                    <Link href="/category/home">Home & Garden</Link>
+                    <Link href="/products/smart-watch">Smart Watch</Link>
                   </DropdownMenuItem>
                 </DropdownMenuGroup>
               </DropdownMenuContent>
@@ -99,7 +99,7 @@ const Navbar = () => {
 
       {/* Marquee */}
       <div className="font-bold">
-        <Marquee>
+        <Marquee className='p-2'>
           <br />
           আসসালামু আলাইকুম সম্মানিত সদস্য আপনাকে অভিনন্দন ওয়েবসাইটে প্রবেশ করার জন্য। আমাদের কাছে পেয়ে যাবেন টেকসই নিত্য প্রয়োজনীয় ইলেকট্রনিক মালামাল। আপনার পছন্দের প্রোডাক্ট এড কার্ড করে এখনই অর্ডার করুন।
         </Marquee>
@@ -111,15 +111,7 @@ const Navbar = () => {
           <Link href="/">
             <h2 onClick={toggleMenu} className="block text-gray-800 hover:text-gray-600">Home</h2>
           </Link>
-          <Link href="/shop">
-            <h2 onClick={toggleMenu} className="block text-gray-800 hover:text-gray-600">Shop</h2>
-          </Link>
-          <Link href="/about">
-            <h2 onClick={toggleMenu} className="block text-gray-800 hover:text-gray-600">About</h2>
-          </Link>
-          <Link href="/contact">
-            <h2 onClick={toggleMenu} className="block text-gray-800 hover:text-gray-600">Contact</h2>
-          </Link>
+        
         </div>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
@@ -128,13 +120,13 @@ const Navbar = () => {
           <DropdownMenuContent>
             <DropdownMenuGroup>
               <DropdownMenuItem>
-                <Link href="/category/electronics" onClick={toggleMenu}>Electronics</Link>
+              <Link href="/products/unique-store">Unique Store</Link>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <Link href="/category/clothing" onClick={toggleMenu}>Clothing</Link>
+              <Link href="/productsheadphone">Headphone</Link>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <Link href="/category/home" onClick={toggleMenu}>Home & Garden</Link>
+              <Link href="/products/smart-watch">Smart Watch</Link>
               </DropdownMenuItem>
             </DropdownMenuGroup>
           </DropdownMenuContent>

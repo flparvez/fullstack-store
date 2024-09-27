@@ -5,6 +5,7 @@ import { clearCart } from '../../store/cartSlice';
 import {useAddOrderMutation} from '../../store/services/CheckOutApi'
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
+import { toast } from 'sonner';
 
 
 
@@ -67,11 +68,11 @@ const [addOrder] = useAddOrderMutation()
          // Clear the cart
          setIsProcessing(false)
       dispatch(clearCart());
-      alert('Order placed successfully!');
-       router.push('/')
+      toast.success('Order placed successfully!');
+       router.push('/profile')
       } catch (err) {
 
-      alert('Failed to place order.');
+     toast.error('Failed to place the order: ');
         console.error('Failed to save the order: ', err);
       }
     };

@@ -29,9 +29,9 @@ const SwiperSlides = ({products}) => {
           clickable: true,
         }}
         breakpoints={{
-          640: { slidesPerView: 1 },
-          540: { slidesPerView: 1 },
-          768: { slidesPerView: 2 },
+          640: { slidesPerView: 2 },
+          540: { slidesPerView: 2 },
+          768: { slidesPerView: 3 },
           968: { slidesPerView: 3 },
           1024: { slidesPerView: 4 },
         }}
