@@ -63,7 +63,7 @@ const Navbar = () => {
                     <Link href="/products/unique-store">Unique Store</Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem>
-                    <Link href="/productsheadphone">Headphone</Link>
+                    <Link href="/products/headphone">Headphone</Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem>
                     <Link href="/products/smart-watch">Smart Watch</Link>
@@ -123,7 +123,7 @@ const Navbar = () => {
               <Link href="/products/unique-store">Unique Store</Link>
               </DropdownMenuItem>
               <DropdownMenuItem>
-              <Link href="/productsheadphone">Headphone</Link>
+              <Link href="/products/headphone">Headphone</Link>
               </DropdownMenuItem>
               <DropdownMenuItem>
               <Link href="/products/smart-watch">Smart Watch</Link>
