@@ -87,7 +87,7 @@ const Navbar = () => {
         </div>
         
         {/* Search bar */}
-        <div className="px-2 w-full sm:max-w-full space-y-1">
+        <div className=" w-full sm:max-w-full space-y-1">
         <SearchProducutByName />
         </div>
       </div>

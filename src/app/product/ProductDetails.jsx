@@ -1,5 +1,5 @@
 "use client"
-
+import Loading from '@/components/Loading'
 import { useDispatch } from 'react-redux';
 import { addItem } from '@/store/cartSlice';
 import { useGetProductBySlugQuery} from '@/store/services/prodcutApi'
@@ -26,8 +26,7 @@ const product = data?.product;
     toast.success('Product added to cart');
     router.push('/cart');
   };
-  if (!product) return <div>Loading...</div>
- 
+  if (!product) return <Loading />
   return (
    
     <div className="container mx-auto p-4">
