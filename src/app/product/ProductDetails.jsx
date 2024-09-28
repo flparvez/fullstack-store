@@ -6,9 +6,10 @@ import { useGetProductBySlugQuery} from '@/store/services/prodcutApi'
 import Image from 'next/image';
 import { toast } from 'sonner';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 const ProductPage =({slug}) => {
 const {data} = useGetProductBySlugQuery(slug)
-
+const router = useRouter()
 const product = data?.product;
 
   const dispatch = useDispatch();
@@ -23,6 +24,7 @@ const product = data?.product;
       image: product.images,  
     }));
     toast.success('Product added to cart');
+    router.push('/cart');
   };
   if (!product) return <div>Loading...</div>
  
