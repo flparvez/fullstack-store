@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import SearchProducutByName from '@/components/SearchProducutByName'
-
+import logo from '../../public/download.webp'
 import { Button } from "@/components/ui/button";
 import Marquee from "react-fast-marquee";
 import { ShoppingCart } from 'lucide-react';
@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import Link from 'next/link';
 import { useSelector } from 'react-redux';
+import Image from 'next/image';
 
 const Navbar = () => {
 
@@ -31,24 +32,18 @@ const Navbar = () => {
   return (
     <nav className="bg-white sm:shadow-md sticky top-0 z-50">
       <div className="sm:max-w-3xl w-full mx-auto px-2 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-10">
           {/* Logo */}
-          <div className="flex-shrink-0">
-            <Link href="/">
-              <h2 className="sm:text-xl text-sm font-bold text-gray-800">Unique Store</h2>
-            </Link>
-          </div>
+          <Link href="/">
+          <Image className='w-7 mx-auto my-2'  src={logo} alt="logo" width={100} height={100} />
+          </Link>
 
           <div className="flex-shrink-0">
-            {/* {  data? ( */}
+       
               <Link href="/profile">
                 <h2 className="sm:text-muted text-sm font-bold text-gray-800">Profile</h2>
               </Link>
-            {/* ) : (
-              <Link className="sm:text-muted text-sm font-bold text-gray-800" href="/auth/login">
-                Login
-              </Link>
-            )} */}
+          
           </div>
 
           {/* Category Dropdown */}
@@ -99,7 +94,7 @@ const Navbar = () => {
 
       {/* Marquee */}
       <div className="font-bold">
-        <Marquee className='p-2'>
+        <Marquee >
           <br />
           আসসালামু আলাইকুম সম্মানিত সদস্য আপনাকে অভিনন্দন ওয়েবসাইটে প্রবেশ করার জন্য। আমাদের কাছে পেয়ে যাবেন টেকসই নিত্য প্রয়োজনীয় ইলেকট্রনিক মালামাল। আপনার পছন্দের প্রোডাক্ট এড কার্ড করে এখনই অর্ডার করুন।
         </Marquee>

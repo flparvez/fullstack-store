@@ -3,7 +3,7 @@ import CategorySlides from '@/components/CategorySlide'
 import Footer from '@/components/Footer'
 import SwiperSlides from '@/components/SwiperSlide'
 import { useGetProductsQuery } from '@/store/services/prodcutApi'
-
+import Loading from '@/components/Loading'
 import ProductList from '@/components/ProductList'
 
 import React from 'react'
@@ -15,7 +15,7 @@ const Home = () => {
   const products = data?.products;
   const productsSlider = data?.products?.slice(0, 10);
 
-if (!products) return <h2>Loading...</h2>
+if (!products) return <Loading />
   return (
     <div>
   
