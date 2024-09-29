@@ -23,7 +23,7 @@ if(session?.user) redirect('/')
     <div className='flex justify-center '>
        <Card className="w-[350px]  mt-32">
       <CardHeader>
-        <CardTitle>Login Page</CardTitle>
+        <CardTitle className="text-2xl font-bold">Login user</CardTitle>
         
       </CardHeader>
       <CardContent>
@@ -36,7 +36,7 @@ if(session?.user) redirect('/')
       "use server"
       await signIn("google")
     }}>
-        <Button type="submit">Login With Google</Button>
+        <Button className="bg-orange-400" type="submit">Login With Google</Button>
     </form>
     <Link href='/auth/register'>
     Dont have an account?  Signup</Link>

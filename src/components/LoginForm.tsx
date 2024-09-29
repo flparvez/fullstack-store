@@ -41,13 +41,13 @@ const toastId = toast.loading("Logging in")
           <div className="grid w-full items-center gap-4">
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="name">Email</Label>
-              <Input type="text" name="email" id="email" placeholder="Enter Email" />
+              <Input  className='p-2' type="text" name="email" id="email" placeholder="Enter Email" />
             </div>
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="name">Password</Label>
-              <Input type="password" name="password" id="email" placeholder="Enter Password" />
+              <Input className='p-2' type="password" name="password" id="email" placeholder="Enter Password" />
             </div>
-            <Button type="submit" variant="ghost">Login</Button>
+            <Button className='text-xl font-bold' type="submit" variant="ghost">Login</Button>
           </div>
         </form>
   
