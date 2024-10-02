@@ -5,6 +5,7 @@ import SwiperSlides from '@/components/SwiperSlide'
 import { useGetProductsQuery } from '@/store/services/prodcutApi'
 import Loading from '@/components/Loading'
 import ProductList from '@/components/ProductList'
+import CustomProductList from '@/components/CustomProductList'
 
 import React from 'react'
 
@@ -43,7 +44,7 @@ if (!products) return <Loading />
               {/* Category Slider With Link */}
               <div className=''>
               <div className='flex justify-center mb-8'>
-              <button className='py-3 px-6 mt-14 text-white bg-blue-500  rounded-md'> Category Slider</button>
+              <button className='py-3 px-6 mt-14 text-white bg-black  rounded-md'> Category</button>
   
     </div>
              
@@ -54,7 +55,7 @@ if (!products) return <Loading />
     {/* Product List Product Category Button */}
  
       <div className='flex justify-center'>
-        <button className='py-3 px-6 mt-14 text-white bg-blue-600 rounded-md'>View All Product</button>
+        <button className='py-3 px-6 mt-14 text-white bg-black rounded-md'>All Products</button>
   
     </div>
   
@@ -66,6 +67,14 @@ if (!products) return <Loading />
         
           
         <ProductList  products={products} />
+      
+        </div>
+  <h2 className='sm:text-3xl text-xl font-bold text-center'>Special Products</h2>
+         <div >
+          
+        
+          
+        <CustomProductList  cproducts={products} />
       
         </div>
   
