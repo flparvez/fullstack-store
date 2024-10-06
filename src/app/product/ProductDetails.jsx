@@ -91,7 +91,7 @@ const ProductPage = ({ slug }) => {
                 <div className="aspect-w-16 aspect-h-9">
                   <iframe
                     className="w-full lg:h-80 md:h-96 h-56 rounded-md"
-                    src={`https://www.youtube.com/embed/${product.video}?controls=0&showinfo=0&modestbranding=1&rel=0&autohide=1`}
+                    src={`https://www.youtube.com/embed/${product.video}?controls=0&showinfo=0&modestbranding=1&rel=0&autohide=1&autoplay=1`}
                     title="Product Video"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
