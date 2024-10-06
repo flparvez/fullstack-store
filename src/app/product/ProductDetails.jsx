@@ -1,4 +1,6 @@
 "use client";
+
+import React from 'react';
 import Loading from '@/components/Loading';
 import { useDispatch } from 'react-redux';
 import { addItem } from '@/store/cartSlice';
@@ -9,29 +11,33 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import LiveChatButton from '@/components/custom/LiveChatButton';
 
+
 const ProductPage = ({ slug }) => {
-  const { data } = useGetProductBySlugQuery(slug);
+  const { data, isLoading, error } = useGetProductBySlugQuery(slug);
   const router = useRouter();
   const product = data?.product;
 
   const dispatch = useDispatch();
 
   const handleAddToCart = () => {
-    dispatch(
-      addItem({
-        product: product._id,
-        slug: product.slug,
-        title: product.name,
-        price: product.price,
-        quantity: 1,
-        image: product.images,
-      })
-    );
-    toast.success('Product added to cart');
-    router.push('/cart');
+    if (product) {
+      dispatch(
+        addItem({
+          product: product._id,
+          slug: product.slug,
+          title: product.name,
+          price: product.price,
+          quantity: 1,
+          image: product.images,
+        })
+      );
+      toast.success('Product added to cart');
+      router.push('/cart');
+    }
   };
 
-  if (!product) return <Loading />;
+  if (isLoading) return <Loading />;
+  if (error || !product) return <div>Error loading product</div>;
 
   return (
     <div className="container mx-auto p-4">
@@ -73,15 +79,11 @@ const ProductPage = ({ slug }) => {
 
             {/* Product Tags */}
             <div className="flex flex-wrap gap-2 mb-6">
-              <span className="px-3 py-1 bg-blue-200 text-blue-800 rounded-md">
-                {product.tags}
-              </span>
-              <span className="px-3 py-1 bg-green-200 text-green-800 rounded-md">
-                Tag 2
-              </span>
-              <span className="px-3 py-1 bg-red-200 text-red-800 rounded-md">
-                Tag 3
-              </span>
+              {/* {product.tags.map((tag, index) => ( */}
+                <span  className="px-3 py-1 bg-blue-200 text-blue-800 rounded-md">
+                  {product.tags}
+                </span>
+              {/* ))} */}
             </div>
 
             {/* Product Video (YouTube Embed) */}
@@ -93,15 +95,13 @@ const ProductPage = ({ slug }) => {
                     className="w-full lg:h-80 md:h-96 h-56 rounded-md"
                     src={`https://www.youtube.com/embed/${product.video}?controls=0&showinfo=0&modestbranding=1&rel=0&autohide=1`}
                     title="Product Video"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; autoplay"
                     allowFullScreen
                     frameBorder="0"
                   ></iframe>
                 </div>
               </div>
-            ) : (
-              ''
-            )}
+            ) : null}
 
             {/* Product Description */}
             <div className="mb-6">
