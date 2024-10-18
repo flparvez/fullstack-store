@@ -5,7 +5,7 @@ import React from 'react'
 import { credentialsLogin } from '@/hooks/login';
 
 
-import {Toaster, toast } from 'sonner';
+import { toast } from 'sonner';
 import { Label } from './ui/label';
 import { Input } from './ui/input';
 import { Button } from './ui/button';

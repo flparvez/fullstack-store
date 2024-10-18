@@ -8,13 +8,6 @@ import { User } from "./models/userSchema";
 
 
 
-
-
-
-
-
-
-
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
     GoogleProvider({
@@ -48,8 +41,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         // Connection with DB
         await connectDb();
         const user = await User.findOne({ email }).select("+password");
-        // const user = await User.findOne({email}).select("-password");
-        // console.log("trysdj",user)
+       
         if (!user || !user.password) throw new CredentialsSignin({cause:"Invalid email or password"});
      
         const isMatch = await compare(password, user.password);
