@@ -1,10 +1,9 @@
-import React from 'react'
-
+import AllProductList from "@/components/custom/AllProducts"
 const Products = () => {
   return (
     <div>
-      <h2>All Products</h2>
-      
+    
+      <AllProductList />
     </div>
   )
 }

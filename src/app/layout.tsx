@@ -8,6 +8,7 @@ import {Provider,store} from "@/components/index"
 
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
+import Footer from '@/components/Footer';
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -44,7 +45,8 @@ export default function RootLayout({
         </Provider>
         <Analytics />
         <SpeedInsights />
-        <Toaster richColors  position="top-right"/>
+        <Toaster richColors duration={1200}  position="top-right"/>
+        <Footer />
       </body>
     </html>
   );

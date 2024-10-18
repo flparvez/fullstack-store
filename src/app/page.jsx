@@ -1,6 +1,6 @@
 "use client"
 import CategorySlides from '@/components/CategorySlide'
-import Footer from '@/components/Footer'
+
 import SwiperSlides from '@/components/SwiperSlide'
 import { useGetProductsQuery } from '@/store/services/prodcutApi'
 import Loading from '@/components/Loading'
@@ -79,7 +79,7 @@ if (!products) return <Loading />
       
 
     
-    <Footer/>
+ 
     </div>
   )
 }

@@ -1,19 +1,21 @@
+"use client"
+
 import { useGetProductsQuery } from '@/store/services/prodcutApi';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react'
 
-const LatestProductList = () => {
+const AllProductList = () => {
   const {data} = useGetProductsQuery()
   const products = data?.products;
-  const latestProducts = products?.slice(0, 10);
-  
+ 
+
   return (
     <div>
-      <h2 className='text-2xl font-bold text-center mt-4'>Latest Products</h2>
+      <h2 className='text-2xl font-bold text-center mt-4'>All Products</h2>
       <div className="container mx-auto sm:px-4 px-2 py-8">
 <div className="grid grid-cols-2 sm:grid-cols-2  gap-4 md:grid-cols-2 lg:grid-cols-3">
-{latestProducts?.map((product) => (
+{products?.map((product) => (
 
 <div key={product._id} className="bg-white rounded-lg shadow-md overflow-hidden">
   <Link href={`/product/${product.slug}`} className="block">
@@ -38,4 +40,4 @@ const LatestProductList = () => {
   )
 }
 
-export default LatestProductList
+export default AllProductList
