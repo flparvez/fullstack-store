@@ -16,6 +16,11 @@ export const metadata: Metadata = {
   keywords:["unique store","unique store bd"],
   title: "Unique Store - Ecommerce Application",
   description: "Ecommerce Application - by parvez",
+  verification: {
+    other: {
+      "google-site-verification": "0qTCYg37Xn4zPyJD_ECxvtKhF8S7Nfi_VfzBfVb0fBo",
+    },
+  }
 };
 
 export default function RootLayout({
