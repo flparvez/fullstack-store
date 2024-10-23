@@ -14,8 +14,8 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   metadataBase: new URL("https://uniquestorebd.vercel.app/"),
   keywords:["unique store","unique store bd"],
-  title: "Unique Store - Ecommerce Application",
-  description: "Ecommerce Application - by parvez",
+  title: "Unique Store Bd- Ecommerce Application",
+  description: "Unique Store Bd | Ecommerce Application - by parvez",
   verification: {
     other: {
       "google-site-verification": "0qTCYg37Xn4zPyJD_ECxvtKhF8S7Nfi_VfzBfVb0fBo",
