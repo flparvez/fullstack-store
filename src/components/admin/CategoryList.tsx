@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 import { useDeleteCategoryMutation } from "@/store/services/CategoryApi";
+import { toast } from "sonner";
 
 function CategoryList({
   product,user
@@ -21,6 +22,7 @@ function CategoryList({
   if (userId) {
     const handleDelete = async (id:any) => {
       await deleteCategory({id, userId}).unwrap();
+      toast.error("Category Deleted")
       };
 
    

@@ -10,13 +10,14 @@ import { cn } from "@/lib/utils";
 import { useState } from "react";
 import { useEditCategoryMutation } from "@/store/services/CategoryApi";
 import { useRouter } from "next/navigation";
+import { toast } from 'sonner';
 
 const EditCategory = ({cdata,categoryId,userId}) => {
 
-  console.log(userId)
+
     const router = useRouter()
  
-    // const [addCategory] = useAddCategoryMutation();
+
   const {
     register,
     handleSubmit,
@@ -37,6 +38,7 @@ const EditCategory = ({cdata,categoryId,userId}) => {
   const onSubmit = async (data) => {
   const categoryUpdate=  await editCategory({ id: categoryId,userId:userId, updatedCategory: data });
 if (categoryUpdate) {
+  toast.success("Category Updated")
   router.push('/admin/category')
 }
     if (!userId) {

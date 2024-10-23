@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils";
 import AdminProductTile from "@/components/ProductListAdmin";
 import SideNavbar from "@/components/sideNavbar";
 import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 
 
@@ -54,6 +55,7 @@ const Dashboard = () => {
 
 const handleDelete = async (productSlug) => {
     await deleteProduct(productSlug);
+    toast.error("Product Deleted")
   };
   return (
     <div className="flex flex-1">

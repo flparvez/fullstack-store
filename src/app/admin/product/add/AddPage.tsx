@@ -13,6 +13,7 @@ const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 import 'react-quill/dist/quill.snow.css';
 import React from "react";
 import dynamic from "next/dynamic";
+import { toast } from "sonner";
 
 
 
@@ -66,17 +67,12 @@ const [addProduct] = useAddProductMutation()
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     const product= await addProduct(data).unwrap();
     if (product) {
-      console.log("Products add succesfully")
+      toast.success("Product Created Succesfully")
        router.push('/admin')
      }
     }
  
-    const tag=[
-      "Smart Watch",
-      "ups",
-      "headphone",
-
-    ]
+  
 
     
   return (
@@ -130,16 +126,7 @@ const [addProduct] = useAddProductMutation()
       <Label htmlFor="price">Product Price</Label>
       <Input {...register("price", { required: true })} id="price" placeholder="Product Price" type="number"   />
       </LabelInputContainer>
-      <RadioGroup defaultValue="all">
-      <Label htmlFor="price">Product Tags</Label>
-
-      {tag.map((cat) => (
-                      <div className="flex items-center space-x-2" key={cat}>
-                        <RadioGroupItem {...register("tags", { required: true })} value={cat.toLocaleLowerCase()}  id={cat.toLocaleLowerCase()} />
-                        <Label htmlFor={cat.toLocaleLowerCase()}>{cat.toLocaleLowerCase()}</Label>
-      </div>
-                     ))}
-  </RadioGroup>
+   
  
     <LabelInputContainer className="mb-4 mt-4">
       <Label htmlFor="stock">Product Stock</Label>

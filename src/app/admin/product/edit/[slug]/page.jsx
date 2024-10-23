@@ -12,6 +12,7 @@ import "react-quill/dist/quill.snow.css";
 import dynamic from "next/dynamic";
 import { cn } from "@/lib/utils";
 import { useGetCategoriesQuery } from "@/store/services/CategoryApi";
+import { toast } from "sonner";
 
 const EditPage = ({ params }) => {
   const router = useRouter();
@@ -43,7 +44,7 @@ const EditPage = ({ params }) => {
         setValue("stock", data.product.stock);
         setValue("sold", data.product.sold);
         setValue("video", data.product.video);
-        setValue("tags", data.product.tags);
+    
       }
     }
     fetchProduct();
@@ -65,17 +66,12 @@ const EditPage = ({ params }) => {
       <h2>Loading...</h2>
     }
     if (!isLoading) {
+      toast.success("Product Updated")
       router.push("/admin");
     }
   };
 
-  const tag=[
-    "Smart Watch",
-    "Tv Box",
-    "ups",
-    "headphone",
 
-  ]
 
 
   return (
@@ -183,16 +179,7 @@ const EditPage = ({ params }) => {
           />
         </LabelInputContainer>
 
-        <RadioGroup defaultValue="all">
-          <Label>Product Tags</Label>
-          {tag.map((cat) => (
-                      <div className="flex items-center space-x-2" key={cat}>
-                        <RadioGroupItem {...register("tags")} value={cat.toLocaleLowerCase()}  id={cat.toLocaleLowerCase()} />
-                        <Label htmlFor={cat.toLocaleLowerCase()}>{cat.toLocaleLowerCase()}</Label>
-            </div>
-          ))}
-        </RadioGroup>
-<br />
+      <br />
         <button
           className="bg-gradient-to-br relative group/btn from-black dark:from-zinc-900 dark:to-zinc-900 to-neutral-600 block dark:bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow"
           type="submit"
