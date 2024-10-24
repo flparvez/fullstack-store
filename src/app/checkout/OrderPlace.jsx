@@ -89,7 +89,7 @@ const [addOrder] = useAddOrderMutation()
 
 
  
-  // const partailP = dhaka? ndata.total+dhaka - 200 : dhakaO? ndata.total+dhakaO -200: null
+  // const partailP = dhaka? ndata.total+dhaka - 100 : dhakaO? ndata.total+dhakaO -100: null
   // const FullP = dhaka? ndata.total+dhaka : dhakaO? ndata.total+dhakaO : null
   // setFullPay(FullP)
   // setPartialpay(partailP)
@@ -190,7 +190,7 @@ const [addOrder] = useAddOrderMutation()
  <label htmlFor="partialPayment">ঢাকার ভেতরে</label>
 
  
-            <input
+            <input 
               type="radio"
               id="partialPayment"
               name="ShippingType"
@@ -260,7 +260,7 @@ const [addOrder] = useAddOrderMutation()
         {paymentDetails.paymentType === 'partial' && (
           <div className="mb-4">
             <label htmlFor="partialAmount" className="block text-sm font-medium text-gray-700">Partial Amount </label>
-            <h2 className='block  text-center font-bold sm:text-2xl text-xl  text-gray-700'>Pay ৳200 online & ৳ {dhaka? ndata.total+dhaka - 200: ndata.total+dhakaO - 200} with Cash on Delivery.</h2>
+            <h2 className='block  text-center font-bold sm:text-2xl text-xl  text-gray-700'>Pay ৳100 online & ৳ {dhaka? ndata.total+dhaka - 100: ndata.total+dhakaO - 100} with Cash on Delivery.</h2>
 
             
           </div>

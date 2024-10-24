@@ -9,21 +9,17 @@ import React, { useState } from "react";
 import { cn } from "@/lib/utils";
 import AdminProductTile from "@/components/ProductListAdmin";
 import SideNavbar from "@/components/sideNavbar";
-import { useRouter } from "next/navigation";
+
 import { toast } from "sonner";
 
 
 
 
 
-export default function Home({user}) {
-  const router = useRouter()
+export default function Home() {
 
-const admin = user?.role === "admin"
 
-if (!admin) {
-  router.push('/test/not-admin')
-}
+
   return (
     
        

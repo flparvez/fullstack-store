@@ -12,14 +12,24 @@ import Link from "next/link";
 import { useSelector } from "react-redux";
 import Image from "next/image";
 
-const Navbar = () => {
+
+
+
+const Navbar =({user}) => {
+
+
+
+const admin = user?.role === "admin"
+
+
+
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  const cart = useSelector((state: any) => state.cart);
+  const cart = useSelector((state) => state.cart);
 
   return (
     <nav className="bg-white sm:shadow-md sticky top-0 z-50">
@@ -38,31 +48,40 @@ const Navbar = () => {
 
           <div className="flex-shrink-0">
             <Link href="/profile">
-              <h2 className="sm:text-muted text-sm font-bold text-gray-800">
+              <h2 className="sm:text-muted text-sm font-bold dark:text-white text-gray-800">
                 Profile
               </h2>
             </Link>
           </div>
 
           <div className="flex-shrink-0">
-            <Link href="/products">
-              <h2 className="sm:text-muted text-sm font-bold text-gray-800">
-                Products
-              </h2>
-            </Link>
-          </div>
 
+  {
+    admin?     <Link href="/admin">
+    <h2 className="sm:text-muted text-sm font-bold dark:text-white text-gray-800">
+      Admin
+    </h2>
+  </Link>
+:     <Link href="/product">
+<h2 className="sm:text-muted text-sm font-bold text-gray-800">
+ product
+</h2>
+</Link>
+
+  }
+
+    </div>
           {/* Category Dropdown */}
  
           {/* Cart and Hamburger */}
           <div className="flex items-center">
             <Link href="/cart">
               <div className="relative inline-flex">
-                <ShoppingCart className="w-10 h-8 text-gray-700" />
+                <ShoppingCart className="w-10 h-8 dark:text-white text-gray-700" />
                 <span className="absolute top-0 right-0 inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-600 rounded-full">
                   (
                   {cart.items.reduce(
-                    (acc: any, item: any) => acc + item.quantity,
+                    (acc, item) => acc + item.quantity,
                     0
                   )}
                   )

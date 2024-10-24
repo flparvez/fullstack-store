@@ -7,7 +7,7 @@ import { Toaster } from "@/components/ui/sonner"
 import {Provider,store} from "@/components/index"
 
 import { cn } from "@/lib/utils";
-import Navbar from "@/components/Navbar";
+import Navmain from "@/components/Navmain";
 import Footer from '@/components/Footer';
 const inter = Inter({ subsets: ["latin"] });
 
@@ -42,7 +42,7 @@ export default function RootLayout({
         {/* <SideNavbar  /> */}
         {/* main page */}
  
-          <Navbar  />
+          <Navmain  />
           {children}
           
       
