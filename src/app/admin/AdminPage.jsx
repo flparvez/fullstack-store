@@ -11,15 +11,20 @@ import AdminProductTile from "@/components/ProductListAdmin";
 import SideNavbar from "@/components/sideNavbar";
 
 import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 
 
 
 
-export default function Home() {
+export default function Home({user}) {
+  const router = useRouter()
 
+const admin = user?.role === "admin"
 
-
+if (!admin) {
+  router.push('/test/not-admin')
+}
   return (
     
        
