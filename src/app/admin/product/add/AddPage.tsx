@@ -102,18 +102,21 @@ const [addProduct] = useAddProductMutation()
 
 
 <br />
-  <LabelInputContainer className="mb-4 mt-4">
-
-      <Label htmlFor="category">Category Sellect</Label>
-      <br />
-      <select defaultValue="all" {...register("category", { required: true })}  className="select ">
-   
-      {categories?.map((category:any) => (
-            <option  key={category._id} value={category.title}>{category.title}</option>
+<br />
+        <LabelInputContainer className="mb-4">
+          <Label htmlFor="category">Category</Label>
+          <select
+          
+            {...register("category", { required: true })}
+            className="select"
+          >
+          {categories?.map((category:any) => (
+            <option  key={category._id} value={category.title.toLocaleLowerCase()}>{category.title}</option>
           ))}
-  </select>
-      </LabelInputContainer>
- 
+          
+          </select>
+        </LabelInputContainer>
+
 
          <LabelInputContainer className="mb-4 ">
       <Label htmlFor="images">Image Link</Label>
