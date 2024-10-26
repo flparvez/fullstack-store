@@ -13,7 +13,7 @@ export async function generateMetadata(
 
   const slug = params?.category;
 
-  const category = await fetch(`http://localhost:3000/api/categories/${slug}`).then((res) => res.json())
+  const category = await fetch(`https://uniquestorebd.vercel.app/api/categories/${slug}`).then((res) => res.json())
 
 
 
