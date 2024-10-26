@@ -20,8 +20,8 @@ function CategoryList({
      
    
   if (userId) {
-    const handleDelete = async (id:any) => {
-      await deleteCategory({id, userId}).unwrap();
+    const handleDelete = async (slug:any) => {
+      await deleteCategory({slug, userId}).unwrap();
       toast.error("Category Deleted")
       };
 
@@ -62,8 +62,8 @@ function CategoryList({
             </span>
           </div>
           <div className="flex justify-between items-center mb-2">
-            <h2> <Link href={`/admin/category/edit/${product._id}`}>Edit Category</Link> </h2>
-            <h2 className="bg-red-600"> <button onClick={() => handleDelete(product?._id)}>Delete</button> </h2>
+            <h2> <Link href={`/admin/category/edit/${product?.slug}`}>Edit Category</Link> </h2>
+            <h2 className="bg-red-600"> <button onClick={() => handleDelete(product?.slug)}>Delete</button> </h2>
           </div>
         </CardContent>
       </div>

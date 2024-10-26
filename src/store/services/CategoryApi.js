@@ -23,15 +23,15 @@ export const categoryApi = createApi({
     }),
        // Query for getting single category
        getCategoryById: builder.query({
-        query: (id) => ({
-          url: `categories/${id}`,
+        query: (slug) => ({
+          url: `categories/${slug}`,
         }),
         providesTags: [{ type: 'Category', id: 'LIST' }],
       }),
  // Edit Category
  editCategory: builder.mutation({
-  query: ({ id,userId, updatedCategory }) => ({
-    url: `categories/${id}?userId=${userId}`,
+  query: ({ slug,userId, updatedCategory }) => ({
+    url: `categories/${slug}?userId=${userId}`,
     method: 'PATCH',
     body: updatedCategory,
   }),
@@ -40,9 +40,9 @@ export const categoryApi = createApi({
 
 // / delete category by id and userId
     deleteCategory: builder.mutation({
-      query: ({id,userId}) => ({
+      query: ({slug,userId}) => ({
         // url: `order/${id}`,
-        url: `categories/${id}?userId=${userId}`,
+        url: `categories/${slug}?userId=${userId}`,
        
         method: 'DELETE',
       }),

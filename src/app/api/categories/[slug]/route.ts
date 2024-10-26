@@ -7,12 +7,13 @@ import slugify from "slugify";
 
 
 
-// Get CategoryById
+// Get CategorySlug
 export const GET = async (request:Request,context: { params:any}) =>{
-    const id = context.params.id;
-   
+    const slug = context.params.slug;
+
+
     try {
-       if (!id ) {
+       if (!slug ) {
             return new NextResponse(
                 JSON.stringify({message:"Inavlid or missing Id"}),
                 {status:400}
@@ -21,8 +22,9 @@ export const GET = async (request:Request,context: { params:any}) =>{
     
         await connectDb();
      
-      const category = await Category.findById(id)
-    
+        const category = await Category.findOne({
+            slug:slug, })
+     
       if (!category) {
     
         return new NextResponse (
@@ -40,11 +42,19 @@ export const GET = async (request:Request,context: { params:any}) =>{
     }
 
 
-//  PATCH request
+
+
+
+
+
+
+
+
+//  PATCH request By Slug
 
 export const PATCH  = async (request:  Request,context: {params:any })=>{
-    const categoryId = context.params.id;
-
+    const slug = context.params.slug;
+  
 
     try {
         
@@ -53,7 +63,7 @@ const {title,description,image} = body;
 
 const { searchParams } = new URL(request.url);
 const userId = searchParams.get("userId");
-console.log(userId)
+
 
 if (!userId || !Types.ObjectId.isValid(userId!)) {
 return new NextResponse(
@@ -62,9 +72,9 @@ return new NextResponse(
 )
 }
 
-if (!categoryId || !Types.ObjectId.isValid(categoryId!)) {
+if (!slug ) {
     return new NextResponse(
-        JSON.stringify({message:"Inavlid or missing CategoryId"}),
+        JSON.stringify({message:"Inavlid or missing Slug"}),
         {status:400}
     )
 }
@@ -78,7 +88,7 @@ if (!user) {
         {status:405}
     )
 }
-const category = await Category.findById(categoryId);
+const category = await Category.findOne({slug:slug});
 
 if (!category) {
     return new NextResponse (
@@ -87,8 +97,8 @@ if (!category) {
     )
 }
 
-const updatedCategory = await Category.findByIdAndUpdate(
-categoryId,
+const updatedCategory = await Category.findOneAndUpdate(
+{slug:slug},
 {title,description,image,slug:slugify(title)},
 {new:true}
 );
@@ -105,7 +115,8 @@ return new NextResponse(JSON.stringify({message:"Category updated successfully",
 
 // deleteByid
 export const DELETE =async (request:Request, context: {params :any})=>{
-    const categoryId = context.params.id;
+    const slug = context.params.slug;
+
 try {
     const { searchParams } = new URL(request.url);
 const userId = searchParams.get("userId");
@@ -116,9 +127,9 @@ if (!userId || !Types.ObjectId.isValid(userId!)) {
     )
     }
     
-    if (!categoryId || !Types.ObjectId.isValid(categoryId!)) {
+    if (!slug ) {
         return new NextResponse(
-            JSON.stringify({message:"Inavlid or missing CategoryId"}),
+            JSON.stringify({message:"Inavlid or missing Slug"}),
             {status:400}
         )
     }
@@ -133,16 +144,19 @@ if (!userId || !Types.ObjectId.isValid(userId!)) {
             {status:404}
         )
     }
-    const category = await Category.findById(categoryId);
+    const category = await Category.findOne({
+        slug:slug, })
+ 
+  if (!category) {
+
+    return new NextResponse (
+        JSON.stringify({message:"Category not found or does not exist"}),
+        {status:404});
+
+  }
+
     
-    if (!category) {
-        return new NextResponse (
-            JSON.stringify({message:"Category not found or does not exist"}),
-            {status:404}
-        )
-    }
-    
-    await Category.findByIdAndDelete(categoryId)
+    await Category.findOneAndDelete({slug:slug})
 
     return new NextResponse(JSON.stringify({message:"Category deleted successfully"}),{status:200})
 

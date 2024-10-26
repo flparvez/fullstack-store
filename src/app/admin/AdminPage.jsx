@@ -2,7 +2,7 @@
 /** @format */
 import {  useDeleteProductMutation, useGetProductsQuery } from "@/store/services/prodcutApi";
 
-import React, { useState } from "react";
+import React from "react";
 
 
 

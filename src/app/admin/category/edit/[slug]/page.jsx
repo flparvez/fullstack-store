@@ -7,7 +7,7 @@ const Category =async ({params}) => {
  
   return (
     <div>
-     <EditCategorys id={params.id} userId ={user}/>
+     <EditCategorys slug={params.slug} userId ={user}/>
     </div>
   )
 }

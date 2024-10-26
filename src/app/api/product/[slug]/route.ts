@@ -8,7 +8,7 @@ import { NextResponse } from "next/server";
 //  get single product By Slug
 export const GET = async (request:Request,context: { params:any}) =>{
     const productSlug = context.params.slug;
-    console.log(productSlug)
+  
     try {
     
   

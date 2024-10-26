@@ -14,6 +14,7 @@ export async function generateMetadata(
   
 const product = await fetch(`https://uniquestorebd.vercel.app/api/product/${params.slug}`).then((res) => res.json())
 
+
 if(!product) <Loading />
   const previousImages = (await parent).openGraph?.images || [];
 

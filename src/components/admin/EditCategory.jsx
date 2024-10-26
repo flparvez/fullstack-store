@@ -1,18 +1,18 @@
 "use client"
 import React from 'react'
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm } from "react-hook-form";
 
 import { Label } from '@/components/ui/label';
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea"
 
 import { cn } from "@/lib/utils";
-import { useState } from "react";
+
 import { useEditCategoryMutation } from "@/store/services/CategoryApi";
 import { useRouter } from "next/navigation";
 import { toast } from 'sonner';
 
-const EditCategory = ({cdata,categoryId,userId}) => {
+const EditCategory = ({cdata,slug,userId}) => {
 
 
     const router = useRouter()
@@ -22,7 +22,7 @@ const EditCategory = ({cdata,categoryId,userId}) => {
     register,
     handleSubmit,
     setValue,
-    watch,
+
     formState: { errors },
   } = useForm();
  
@@ -36,7 +36,7 @@ const EditCategory = ({cdata,categoryId,userId}) => {
   const [editCategory, { isLoading }] = useEditCategoryMutation();
 
   const onSubmit = async (data) => {
-  const categoryUpdate=  await editCategory({ id: categoryId,userId:userId, updatedCategory: data });
+  const categoryUpdate=  await editCategory({ slug: slug,userId:userId, updatedCategory: data });
 if (categoryUpdate) {
   toast.success("Category Updated")
   router.push('/admin/category')
