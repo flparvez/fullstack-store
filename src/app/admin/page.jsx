@@ -4,6 +4,7 @@ import { auth } from '@/auth'
 const Admin = async () => {
   const session = await auth()
   const user = session?.user
+  
   return (
     <div>
       <Home user={user} />

@@ -2,7 +2,7 @@
 
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+
 import { useEditProductMutation } from "@/store/services/prodcutApi";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -14,7 +14,8 @@ import { cn } from "@/lib/utils";
 import { useGetCategoriesQuery } from "@/store/services/CategoryApi";
 import { toast } from "sonner";
 
-const EditPage = ({ params }) => {
+const EditProductForm = ({ params,user}) => {
+ 
   const router = useRouter();
   const [product, setProduct] = useState(null);
   const {data} =useGetCategoriesQuery()
@@ -30,6 +31,13 @@ const EditPage = ({ params }) => {
 
   useEffect(() => {
     async function fetchProduct() {
+   
+
+      const admin = user?.role === "admin"
+      
+      if (!admin) {
+        router.push('/test/not-admin')
+      }
       const res = await fetch(`/api/product/${params.slug}`);
       const data = await res.json();
       setProduct(data?.product);
@@ -61,7 +69,7 @@ const EditPage = ({ params }) => {
   const [editProduct, { isLoading }] = useEditProductMutation();
 
   const onSubmit = async (data) => {
-    await editProduct({ productSlug: product.slug, updatedProduct: data });
+    await editProduct({ productSlug: product.slug, updatedProduct: data,id: user?.id });
     if (!product) {
       <h2>Loading...</h2>
     }
@@ -194,4 +202,4 @@ const EditPage = ({ params }) => {
 const LabelInputContainer = ({ children, className }) => {
   return <div className={cn("flex flex-col space-y-2 w-full", className)}>{children}</div>;
 };
-export default EditPage;
+export default EditProductForm;

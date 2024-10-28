@@ -3,11 +3,19 @@ import CategoryList from "@/components/admin/CategoryList";
 
 import { useGetCategoriesQuery } from "@/store/services/CategoryApi";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 
 
 
 export default function CategorytList({user}) {
+  const router = useRouter()
+
+  const admin = user?.role === "admin"
+  
+  if (!admin) {
+    router.push('/test/not-admin')
+  }
 const {data,isLoading} = useGetCategoriesQuery()
 
   const categories =data;

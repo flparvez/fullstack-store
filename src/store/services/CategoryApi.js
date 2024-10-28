@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-const id = "66f25a8262c70c829f0556b9";
+
 
 export const categoryApi = createApi({
   reducerPath: 'categoryApi',
@@ -14,12 +14,12 @@ export const categoryApi = createApi({
     }),
 
     addCategory: builder.mutation({
-      query: (body) => ({
+      query: ({body,id}) => ({
         url: `categories?userId=${id}`,
         method: 'POST',
-        body,
+        body:body,
       }),
-      invalidatesTags: [{ type: 'Category', id: 'LIST' }],
+      invalidatesTags: [{ type: 'Category' }],
     }),
        // Query for getting single category
        getCategoryById: builder.query({

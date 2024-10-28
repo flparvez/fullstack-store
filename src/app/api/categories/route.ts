@@ -50,7 +50,7 @@ export const POST = async (request:Request) =>{
          return new NextResponse(JSON.stringify({message:"Category created successfully",newCategory}),{status:200})
     } catch (error:any) {
         // error in creating category
-        return new NextResponse("Error In Creating Category",{status:500});
+        return new NextResponse("Error In Creating Category"+error,{status:500},);
     }
 }
 

@@ -1,6 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-const id = "66f25a8262c70c829f0556b9";
 
 export const UserApi = createApi({
   reducerPath: 'UserApi',
@@ -16,7 +15,7 @@ export const UserApi = createApi({
         method: 'POST',
         body,
       }),
-      invalidatesTags: [{ type: 'User', id }],
+      invalidatesTags: [{ type: 'User', id: 'LIST' }],
     }),
 
     logoutUser: builder.query({

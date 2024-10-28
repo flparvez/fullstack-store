@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-const id = "66f25a8262c70c829f0556b9";
+
 
 export const productsApi = createApi({
   reducerPath: 'productsApi',
@@ -9,7 +9,7 @@ export const productsApi = createApi({
   endpoints: (builder) => ({
 
     addProduct: builder.mutation({
-      query: (body) => ({
+      query: ({ body,id}) => ({
         url: `product?userId=${id}`,
         method: 'POST',
         body,
@@ -18,7 +18,7 @@ export const productsApi = createApi({
     }),
     
     editProduct: builder.mutation({
-      query: ({ productSlug, updatedProduct }) => ({
+      query: ({ productSlug, updatedProduct,id }) => ({
         url: `product/${productSlug}?userId=${id}`,
         method: 'PATCH',
         body: updatedProduct,
@@ -37,18 +37,13 @@ export const productsApi = createApi({
     }),
 
     deleteProduct: builder.mutation({
-      query: (productSlug) => ({
-        url: `product/${productSlug}?userId=${id}`,
+      query: ({productSlug,userId}) => ({
+        url: `product/${productSlug}?userId=${userId}`,
         method: 'DELETE',
       }),
       invalidatesTags: [{ type: 'Product', id: 'LIST' }, { type: 'Cart' }],
     }),
 
-    // Add a query to get cart data
-    getCart: builder.query({
-      query: () => `cart?userId=${id}`,
-      providesTags: [{ type: 'Cart' }],
-    }),
 
   }),
 });
@@ -59,5 +54,5 @@ export const {
   useAddProductMutation,
   useDeleteProductMutation,
   useEditProductMutation,
-  useGetCartQuery,
+
 } = productsApi;

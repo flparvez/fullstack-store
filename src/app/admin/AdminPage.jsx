@@ -18,6 +18,7 @@ import { useRouter } from "next/navigation";
 
 
 export default function Home({user}) {
+  
   const router = useRouter()
 
 const admin = user?.role === "admin"
@@ -38,7 +39,7 @@ if (!admin) {
         <SideNavbar />
        
         
-        <Dashboard />
+        <Dashboard user={user} />
  
         
       </div>
@@ -49,13 +50,13 @@ if (!admin) {
 }
 
 // Dummy dashboard component with content
-const Dashboard = () => {
+const Dashboard = ({user}) => {
 
   const {data,isLoading} = useGetProductsQuery()
   const [deleteProduct] = useDeleteProductMutation();
 
 const handleDelete = async (productSlug) => {
-    await deleteProduct(productSlug);
+    await deleteProduct({productSlug:productSlug, userId:user?.id}).unwrap();
     toast.error("Product Deleted")
   };
   return (

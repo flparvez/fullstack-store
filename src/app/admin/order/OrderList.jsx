@@ -4,10 +4,17 @@ import { useGetOrdersQuery } from '../../../store/services/CheckOutApi';
 
 import OrderList from '@/components/admin/OrdersListItem'
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 const Orders = ({user}) => {
 
- 
+  const router = useRouter()
+
+  const admin = user?.role === "admin"
+  
+  if (!admin) {
+    router.push('/test/not-admin')
+  }
   const { data, isLoading, isError } = useGetOrdersQuery(); 
 
   const [orderData, setOrderData] = useState([]);

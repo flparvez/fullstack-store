@@ -4,7 +4,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { Label } from '@/components/ui/label';
 import { Input } from "@/components/ui/input";
 import { useGetCategoriesQuery } from "@/store/services/CategoryApi";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+
 import { cn } from "@/lib/utils";
 
 import { useAddProductMutation } from "@/store/services/prodcutApi";
@@ -31,6 +31,13 @@ type Inputs = {
 
 export default function AddProductForm({user}:any) {
   const router = useRouter()
+
+
+  const admin = user?.role === "admin"
+  
+  if (!admin) {
+    router.push('/test/not-admin')
+  }
   const {data} =useGetCategoriesQuery("")
   const categories =data
 const [addProduct] = useAddProductMutation()
@@ -59,13 +66,8 @@ const [addProduct] = useAddProductMutation()
   };
 
 
-
-  // console.log(watch("description")); 
-  // watch input value by passing the name of it
-
-
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    const product= await addProduct(data).unwrap();
+    const product= await addProduct({ body: data, id: user?.id }).unwrap();
     if (product) {
       toast.success("Product Created Succesfully")
        router.push('/admin')

@@ -4,10 +4,10 @@ import { auth } from '@/auth';
 const OrderPage =async () => {
   const session = await auth()
 const user = session?.user
-  console.log(user)
+
   return (
     <div>
-      <h2>test</h2>
+ 
       <Orders user={user}  />
     </div>
   )
