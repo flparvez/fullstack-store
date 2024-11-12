@@ -29,15 +29,16 @@ const EditProductForm = ({ params,user}) => {
     formState: { errors },
   } = useForm();
 
+
+  const admin = user?.role === "admin"
+      
+
+
   useEffect(() => {
     async function fetchProduct() {
    
 
-      const admin = user?.role === "admin"
-      
-      if (!admin) {
-        router.push('/test/not-admin')
-      }
+ 
       const res = await fetch(`/api/product/${params.slug}`);
       const data = await res.json();
       setProduct(data?.product);
@@ -67,7 +68,9 @@ const EditProductForm = ({ params,user}) => {
   }, [register]);
 
   const [editProduct, { isLoading }] = useEditProductMutation();
-
+  if (!admin) {
+    router.push('/test/not-admin')
+  }
   const onSubmit = async (data) => {
     await editProduct({ productSlug: product.slug, updatedProduct: data,id: user?.id });
     if (!product) {

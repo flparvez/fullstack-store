@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import SearchProducutByName from "@/components/SearchProducutByName";
+import AdminSearch from "@/components/admin/SearchBarAdmin";
 import logo from "../../public/download.webp";
 import { Button } from "@/components/ui/button";
 import Marquee from "react-fast-marquee";
@@ -102,7 +103,8 @@ const admin = user?.role === "admin"
 
         {/* Search bar */}
         <div className=" w-full sm:max-w-full space-y-1">
-          <SearchProducutByName />
+          {admin? <AdminSearch /> : <SearchProducutByName />}
+                
         </div>
       </div>
 

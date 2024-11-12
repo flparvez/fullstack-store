@@ -73,26 +73,21 @@ const ProductPage = ({ slug }) => {
             <p className="text-md text-gray-700 mb-4">Stock: {product.stock}</p>
 
             {/* Product Category */}
-            <p className="text-md text-gray-500 mb-6">
-              Category: <span className="font-bold">
-                <Link href={`/products/${product?.slug?.toLowerCase()}`}>
-                  {product.category}
+            <p className="flex flex-wrap gap-2 mb-6">
+              Category: <span className="px-3 py-1 bg-blue-200 text-blue-800 rounded-md">
+              <Link href="/products">
+                  {product.category.toUpperCase()}
                 </Link>
               </span>
             </p>
 
             {/* Product Tags */}
-            <div className="flex flex-wrap gap-2 mb-6">
+            {/* <div className="flex flex-wrap gap-2 mb-6">
               <span className="px-3 py-1 bg-blue-200 text-blue-800 rounded-md">
                 {product.tags}
               </span>
-              <span className="px-3 py-1 bg-green-200 text-green-800 rounded-md">
-                Tag 2
-              </span>
-              <span className="px-3 py-1 bg-red-200 text-red-800 rounded-md">
-                Tag 3
-              </span>
-            </div>
+         
+            </div> */}
 
             {/* Product Video (YouTube Embed) */}
             {product.video ? (
