@@ -63,7 +63,7 @@ const admin = user?.role === "admin"
       Admin
     </h2>
   </Link>
-:     <Link href="/product">
+:     <Link href="/products">
 <h2 className="sm:text-muted text-sm font-bold text-gray-800">
  product
 </h2>
