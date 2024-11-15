@@ -1,5 +1,10 @@
 import React from 'react'
+import type { Metadata } from 'next'
 
+export const metadata: Metadata = {
+  title: 'After Sales And Technical Support',
+  description: 'Unique Store BD এর আফটার সেলস এবং টেকনিক্যাল সাপোর্ট',
+}
 const AfterSaleService = () => {
   return (
     <div className="max-w-4xl mx-auto p-4">

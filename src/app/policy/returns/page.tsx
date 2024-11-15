@@ -1,5 +1,10 @@
 import React from 'react'
+import type { Metadata } from 'next'
 
+export const metadata: Metadata = {
+  title: 'Return Policy',
+  description: 'Unique Store Bd Return Policy',
+}
 const Returns = () => {
   return (
 <div className="bg-gray-100 p-6 rounded-lg shadow-md">
