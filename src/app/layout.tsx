@@ -44,7 +44,7 @@ export default function RootLayout({
  
           <Navmain  />
           {children}
-          GearUP Neckband P2 – White Color
+    
       
 
         </Provider>
