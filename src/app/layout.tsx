@@ -13,8 +13,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://uniquestorebd.vercel.app/"),
-  keywords:["unique store","unique store bd"],
-  title: "Unique Store Bd- Ecommerce Application",
+  keywords:["unique store","Unique Store Bd","quality is here"],
+  title: "Unique Store Bd- Quality Is Here",
   description: "Unique Store Bd | Ecommerce Application - by parvez",
   verification: {
     other: {
@@ -44,7 +44,7 @@ export default function RootLayout({
  
           <Navmain  />
           {children}
-          
+          GearUP Neckband P2 – White Color
       
 
         </Provider>

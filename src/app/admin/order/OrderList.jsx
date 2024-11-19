@@ -32,12 +32,12 @@ const Orders = ({user}) => {
 
  
     <div className="container mx-auto p-4">
-      <div className='flex'>
-      <h2 className='py-4'> <Link href='/admin'>Admin</Link> </h2>
+<div>
+<h2 className='py-4'> <Link href='/admin'>Admin</Link> </h2>
       <br />
       <br />
       <h2> <Link href='/admin'>Category</Link> </h2>
-      </div>
+</div>
 
     <h1 className="text-2xl font-semibold mb-4">Admin Panel - Orders</h1>
     <div className="sm:container mx-auto sm:px-4 py-8 px-2">
